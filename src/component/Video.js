@@ -8,13 +8,13 @@ const Video = () => {
     const [open, setOpen] = useState(false)
 
     const playvideo = e => {
-        // e.target.play()
-        setShowOverlay(true)
+        e.target.play()
+        // setShowOverlay(true)
     }
 
     const pausevideo = e => {
-        // e.target.pause()
-        setShowOverlay(false)
+        e.target.pause()
+        // setShowOverlay(false)
     }
 
     const openVideo = () => {
@@ -40,12 +40,10 @@ const Video = () => {
             
             <section id="section1">
                 <a href="#section3">&#60;</a>
-                <div class="item"> 
+                <div class="item" onClick={() => setOpen(true)}> 
                     {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYtsiJzlvKCPCDrMrJBCmaLhVY-HkNnvMYJg&usqp=CAU" alt="Movie" width="350" height="256.703" /> */}
-                    <div className={showOverlay ? 'overlay true' : 'overlay'}>
-                        {showOverlay && (<button onClick={() => setOpen(true)}><PlayCircleFilledIcon /></button>)}</div>
                     
-                    <video preload="auto" loop width="350" height="256.703">
+                    <video preload="auto" onMouseOver={playvideo} onMouseOut={pausevideo} loop width="350" height="256.703">
                         <source src="https://htmlreference.io/assets/HTML%205%20Video.mp4" type="video/mp4"></source>
                     </video>
                     
